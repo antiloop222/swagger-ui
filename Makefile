@@ -1,4 +1,4 @@
-.PHONY: default build run push clean
+.PHONY: default build run pull push clean
 
 REPO_URL             := dockerhub.vilanet.fr
 DOCKER_LOGIN         := kriss
@@ -14,6 +14,9 @@ build:
 
 run:
 	docker run --name swagger -d -p 127.0.0.1:8080:8080 "$(DOCKER_IMG_FULL_NAME)"
+
+pull:
+  docker pull "$(DOCKER_IMG_FULL_NAME)"
 
 push:
 	docker push "$(DOCKER_IMG_FULL_NAME)"
