@@ -15,7 +15,7 @@ The OpenAPI Specification has undergone 4 revisions since initial creation in 20
 
 Swagger UI Version | Release Date | OpenAPI Spec compatibility | Notes | Status
 ------------------ | ------------ | -------------------------- | ----- | ------
-3.0.9              | 2017-03-19   | 2.0                        | [tag v3.0.9](https://github.com/swagger-api/swagger-ui/tree/v3.0.9) |
+3.0.10              | 2017-03-19   | 2.0                        | [tag v3.0.10](https://github.com/swagger-api/swagger-ui/tree/v3.0.10) |
 2.2.10             | 2017-01-04   | 1.1, 1.2, 2.0              | [tag v2.2.10](https://github.com/swagger-api/swagger-ui/tree/v2.2.10) |
 2.1.5              | 2016-07-20   | 1.1, 1.2, 2.0              | [tag v2.1.5](https://github.com/swagger-api/swagger-ui/tree/v2.1.5) |
 2.0.24             | 2014-09-12   | 1.1, 1.2 | [tag v2.0.24](https://github.com/swagger-api/swagger-ui/tree/v2.0.24) |
@@ -72,6 +72,33 @@ To use swagger-ui's bundles, you should take a look at the [source of swagger-ui
       SwaggerUIBundle.plugins.DownloadUrl
     ],
     layout: "StandaloneLayout"
+  })
+```
+
+#### OAuth2 configuration
+You can configure OAuth2 authorization by calling `initOAuth` method with passed configs under the instance of `SwaggerUIBundle`
+default `client_id` and `client_secret`, `realm`, an application name `appName`, `scopeSeparator`, `additionalQueryStringParams`.
+
+Config Name | Description
+--- | ---
+client_id | Default clientId. MUST be a string 
+client_secret | Default clientSecret. MUST be a string 
+realm | realm query parameter (for oauth1) added to `authorizationUrl` and `tokenUrl` . MUST be a string
+appName | application name, displayed in authorization popup. MUST be a string
+scopeSeparator | scope separator for passing scopes, encoded before calling, default value is a space (encoded value `%20`). MUST be a string 
+additionalQueryStringParams | Additional query parameters added to `authorizationUrl` and `tokenUrl`. MUST be an object
+
+```
+const ui = SwaggerUIBundle({...})
+
+// Method can be called in any place after calling constructor SwaggerUIBundle
+ui.initOAuth({
+    clientId: "your-client-id",
+    clientSecret: "your-client-secret-if-required",
+    realm: "your-realms",
+    appName: "your-app-name",
+    scopeSeparator: " ",
+    additionalQueryStringParams: {test: "hello"}
   })
 ```
 
