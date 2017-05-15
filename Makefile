@@ -3,7 +3,7 @@
 REPO_URL             := dockerhub.vilanet.fr
 DOCKER_LOGIN         := kriss
 DOCKER_IMG_NAME      := swagger-ui
-DOCKER_IMG_VERSION   := 3.0.9
+DOCKER_IMG_VERSION   := 3.0.10
 DOCKER_IMG_FULL_NAME := $(REPO_URL)/$(DOCKER_LOGIN)/$(DOCKER_IMG_NAME):$(DOCKER_IMG_VERSION)
 export
 
