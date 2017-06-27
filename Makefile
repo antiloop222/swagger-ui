@@ -14,7 +14,7 @@ build:
 	docker build -t "$(DOCKER_IMG_FULL_NAME)" .
 
 run:
-	docker run --name swagger -d -p $(DOCKER_EXPOSE_IP):8080:8080 "$(DOCKER_IMG_FULL_NAME)"
+	docker run --name swagger -d -p $(DOCKER_EXPOSE_IP):8082:8080 "$(DOCKER_IMG_FULL_NAME)"
 
 push:
 	docker push "$(DOCKER_IMG_FULL_NAME)"
